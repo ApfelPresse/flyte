@@ -37,7 +37,7 @@ Chart for basic single Flyte executable deployment
 | configuration.auth.oidc.clientId | string | `""` |  |
 | configuration.auth.oidc.clientSecret | string | `""` |  |
 | configuration.co-pilot.image.repository | string | `"cr.flyte.org/flyteorg/flytecopilot"` |  |
-| configuration.co-pilot.image.tag | string | `"v1.16.7"` |  |
+| configuration.co-pilot.image.tag | string | `"v1.16.8"` |  |
 | configuration.connectorService.defaultConnector.defaultTimeout | string | `"10s"` |  |
 | configuration.connectorService.defaultConnector.endpoint | string | `"k8s://flyteconnector.flyte:8000"` |  |
 | configuration.connectorService.defaultConnector.insecure | bool | `true` |  |
@@ -172,4 +172,8 @@ Chart for basic single Flyte executable deployment
 | serviceAccount.imagePullSecrets | list | `[]` |  |
 | serviceAccount.labels | object | `{}` |  |
 | serviceAccount.name | string | `""` |  |
+| serviceMonitor.enabled | bool | `false` |  |
+| serviceMonitor.interval | string | `"60s"` |  |
+| serviceMonitor.labels | object | `{}` |  |
+| serviceMonitor.scrapeTimeout | string | `"30s"` |  |
 

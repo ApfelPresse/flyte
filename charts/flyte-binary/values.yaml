@@ -167,7 +167,7 @@ configuration:
       # repository CoPilot sidecar image repository
       repository: cr.flyte.org/flyteorg/flytecopilot  # FLYTECOPILOT_IMAGE
       # tag CoPilot sidecar image tag
-      tag: v1.16.7  # FLYTECOPILOT_TAG
+      tag: v1.16.8  # FLYTECOPILOT_TAG
   # connectorService Flyte Connector configuration
   connectorService:
     defaultConnector:
@@ -342,6 +342,18 @@ service:
   loadBalancerSourceRanges: []
   # extraPorts Additional ports to add to Flyte service
   extraPorts: []
+
+# serviceMonitor Configure a Prometheus Operator ServiceMonitor for Flyte
+# Requires the ServiceMonitor CRD and an `http-metrics` port on the http service (see `service.extraPorts`)
+serviceMonitor:
+  # enabled Create a ServiceMonitor for Flyte
+  enabled: false
+  # interval Interval at which Prometheus scrapes metrics
+  interval: 60s
+  # scrapeTimeout Timeout for each scrape request
+  scrapeTimeout: 30s
+  # labels Add labels to the ServiceMonitor, e.g. those required by your Prometheus to discover it
+  labels: {}
 
 # ingress Configure ingress for Flyte
 ingress:
